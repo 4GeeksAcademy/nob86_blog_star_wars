@@ -22,6 +22,10 @@ const getState = ({ getStore, getActions, setStore }) => {
       singleStarship: null,
       films: [],
       singleFilm: null,
+      vehicles: [],
+      singleVehicle: null,
+      species: [],
+      singleSpecies: null
     },
     actions: {
       // Función para hacer fetch de los planetas
@@ -149,6 +153,69 @@ const getState = ({ getStore, getActions, setStore }) => {
             console.error("Error fetching single film: ", error);
           });
       },
+
+      fetchVehiclesData: () => {
+        fetch("https://www.swapi.tech/api/vehicles")
+          .then((response) => {
+            if (!response.ok) throw new Error("Error al obtener los vehicles");
+            return response.json();
+          })
+          .then((data) => {
+            // Aquí almacenamos la lista de planetas en el store
+            setStore({ vehicles: data.results });
+          })
+          .catch((error) => {
+            console.error("Error fetching vehicles: ", error);
+          });
+      },
+
+      // Función para obtener un solo planeta por ID
+      fetchSingleVehicle: (id) => {
+        fetch(`https://www.swapi.tech/api/vehicles/${id}`)
+          .then((response) => {
+            if (!response.ok) throw new Error("Error al obtener el vehicle");
+            return response.json();
+          })
+          .then((data) => {
+            // Aquí almacenamos el planeta individual en el store
+            setStore({ singleVehicle: data.result });
+          })
+          .catch((error) => {
+            console.error("Error fetching single vehicle: ", error);
+          });
+      },
+
+      fetchspeciesData: () => {
+        fetch("https://www.swapi.tech/api/species")
+          .then((response) => {
+            if (!response.ok) throw new Error("Error al obtener los species");
+            return response.json();
+          })
+          .then((data) => {
+            // Aquí almacenamos la lista de planetas en el store
+            setStore({ species: data.results });
+          })
+          .catch((error) => {
+            console.error("Error fetching species: ", error);
+          });
+      },
+
+      // Función para obtener un solo planeta por ID
+      fetchSingleSpecie: (id) => {
+        fetch(`https://www.swapi.tech/api/species/${id}`)
+          .then((response) => {
+            if (!response.ok) throw new Error("Error al obtener el specie");
+            return response.json();
+          })
+          .then((data) => {
+            // Aquí almacenamos el planeta individual en el store
+            setStore({ singleSpecie: data.result });
+          })
+          .catch((error) => {
+            console.error("Error fetching single specie: ", error);
+          });
+      },
+
 
       exampleFunction: () => {
         getActions().changeColor(0, "green");
