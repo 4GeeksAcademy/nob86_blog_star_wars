@@ -41,6 +41,16 @@ export const Home = () => {
 					<li>Cargando planetas...</li> // Mensaje mientras se cargan los planetas
 				)}
 			</ul>
+			<h1>Lista de People</h1>
+			<ul>
+				{store.people.length > 0 ? (
+					store.people.map((people, index) => (
+						<li key={index}>{people.name}</li> // Renderizar cada planeta
+					))
+				) : (
+					<li>Cargando people...</li> // Mensaje mientras se cargan los planetas
+				)}
+			</ul>
 		</div>
 	);
 };

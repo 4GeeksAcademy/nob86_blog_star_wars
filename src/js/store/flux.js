@@ -70,6 +70,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planets: [],  // Aquí se almacenarán los planetas
 			singlePlanet: null,  // Para almacenar un solo planeta si es necesario
 			people: [],
+			singlePeople : null
 		},
 		actions: {
 			// Función para hacer fetch de los planetas
@@ -98,6 +99,37 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => {
 						// Aquí almacenamos el planeta individual en el store
 						setStore({ singlePlanet: data.result });
+					})
+					.catch(error => {
+						console.error("Error fetching single planet: ", error);
+					});
+			},
+
+			fetchPeopleData: () => {
+				fetch("https://www.swapi.tech/api/people")
+					.then(response => {
+						if (!response.ok) throw new Error("Error al obtener los planetas");
+						return response.json();
+					})
+					.then(data => {
+						// Aquí almacenamos la lista de planetas en el store
+						setStore({ people: data.results });
+					})
+					.catch(error => {
+						console.error("Error fetching planets: ", error);
+					});
+			},
+
+			// Función para obtener un solo planeta por ID
+			fetchSinglePeople: (id) => {
+				fetch(`https://www.swapi.tech/api/people/${id}`)
+					.then(response => {
+						if (!response.ok) throw new Error("Error al obtener el planeta");
+						return response.json();
+					})
+					.then(data => {
+						// Aquí almacenamos el planeta individual en el store
+						setStore({ singlePeople: data.result });
 					})
 					.catch(error => {
 						console.error("Error fetching single planet: ", error);
