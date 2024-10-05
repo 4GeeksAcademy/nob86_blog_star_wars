@@ -70,7 +70,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planets: [],  // Aquí se almacenarán los planetas
 			singlePlanet: null,  // Para almacenar un solo planeta si es necesario
 			people: [],
-			singlePeople : null
+			singlePeople : null,
+			starships: [],
+			singleStarship: null
 		},
 		actions: {
 			// Función para hacer fetch de los planetas
@@ -108,7 +110,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			fetchPeopleData: () => {
 				fetch("https://www.swapi.tech/api/people")
 					.then(response => {
-						if (!response.ok) throw new Error("Error al obtener los planetas");
+						if (!response.ok) throw new Error("Error al obtener los people");
 						return response.json();
 					})
 					.then(data => {
@@ -124,7 +126,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			fetchSinglePeople: (id) => {
 				fetch(`https://www.swapi.tech/api/people/${id}`)
 					.then(response => {
-						if (!response.ok) throw new Error("Error al obtener el planeta");
+						if (!response.ok) throw new Error("Error al obtener people");
 						return response.json();
 					})
 					.then(data => {
@@ -132,9 +134,41 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ singlePeople: data.result });
 					})
 					.catch(error => {
-						console.error("Error fetching single planet: ", error);
+						console.error("Error fetching single people: ", error);
 					});
 			},
+
+			fetchStarshipsData: () => {
+				fetch("https://www.swapi.tech/api/starships")
+					.then(response => {
+						if (!response.ok) throw new Error("Error al obtener los starthips");
+						return response.json();
+					})
+					.then(data => {
+						// Aquí almacenamos la lista de planetas en el store
+						setStore({ starships: data.results });
+					})
+					.catch(error => {
+						console.error("Error fetching starships: ", error);
+					});
+			},
+
+			// Función para obtener un solo planeta por ID
+			fetchSingleStarship: (id) => {
+				fetch(`https://www.swapi.tech/api/starships/${id}`)
+					.then(response => {
+						if (!response.ok) throw new Error("Error al obtener el starship");
+						return response.json();
+					})
+					.then(data => {
+						// Aquí almacenamos el planeta individual en el store
+						setStore({ singleStarship: data.result });
+					})
+					.catch(error => {
+						console.error("Error fetching single starship: ", error);
+					});
+			},
+
 
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");

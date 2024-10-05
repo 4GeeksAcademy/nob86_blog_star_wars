@@ -25,7 +25,9 @@ export const Home = () => {
 
 	// Llamar a la función que obtiene los planetas cuando el componente se monta
 	useEffect(() => {
-		actions.fetchPlanetsData(); // Llama al fetch de planetas
+		actions.fetchPlanetsData();
+		actions.fetchPeopleData();
+		actions.fetchStarshipsData();
 	}, []);
 
 	return (
@@ -49,6 +51,16 @@ export const Home = () => {
 					))
 				) : (
 					<li>Cargando people...</li> // Mensaje mientras se cargan los planetas
+				)}
+			</ul>
+			<h1>Lista de starships</h1>
+			<ul>
+				{store.starships.length > 0 ? (
+					store.starships.map((starship, index) => (
+						<li key={index}>{starship.name}</li> // Renderizar cada planeta
+					))
+				) : (
+					<li>Cargando starships...</li> // Mensaje mientras se cargan los planetas
 				)}
 			</ul>
 		</div>
