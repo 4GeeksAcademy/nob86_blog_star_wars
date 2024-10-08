@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useState } from "react";
 import "../../styles/home.css";
 import { Context } from "../store/appContext"; // Importa el contexto para acceder al store y las acciones
+import Card from "../component/card";
 
 export const Home = () => {
   // Acceder al store y actions desde el contexto
@@ -103,13 +104,15 @@ export const Home = () => {
           <ul className="list-group">
             {store.people.length > 0 ? (
               store.people.map((people, index) => (
-                <li
+                <Card
                   key={index}
+                  name={people.name}
+                  type={"characters"}
+                  id={people.uid}
                   className="list-group-item"
                   onClick={() => setSelectedPeopleId(people.uid)} // Asigna el ID seleccionado
-                >
-                  {people.name}
-                </li>
+                />
+                
               ))
             ) : (
               <li className="list-group-item">Cargando people...</li>
