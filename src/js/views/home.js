@@ -44,13 +44,16 @@ export const Home = () => {
           <ul className="list-group">
             {store.films?.length > 0 ? (
               store.films.map((film, index) => (
-                <li
+                <Card
                   key={index}
+                  name={film.name}
+                  type={"films"}
+                  id={film.uid}
                   className="list-group-item"
                   onClick={() => setSelectedFilmId(film.uid)} // Asigna el ID seleccionado
-                >
-                  {film.title} - Dirigida por: {film.director}
-                </li>
+                />
+                  
+               
               ))
             ) : (
               <li className="list-group-item">Cargando films...</li>
@@ -74,13 +77,15 @@ export const Home = () => {
           <ul className="list-group">
             {store.planets.length > 0 ? (
               store.planets.map((planet, index) => (
-                <li
+                <Card
                   key={index}
+                  name={planet.name}
+                  type={"planets"}
+                  id={planet.uid}
                   className="list-group-item"
                   onClick={() => setSelectedPlanetId(planet.uid)} // Asigna el ID seleccionado
-                >
-                  {planet.name}
-                </li>
+                />
+                  
               ))
             ) : (
               <li className="list-group-item">Cargando planetas...</li>
@@ -136,13 +141,15 @@ export const Home = () => {
           <ul className="list-group">
             {store.starships.length > 0 ? (
               store.starships.map((starship, index) => (
-                <li
+                <Card
                   key={index}
+                  name={starship.name}
+                  type={"starships"}
+                  id={starship.uid}
                   className="list-group-item"
                   onClick={() => setSelectedStarshipId(starship.uid)} // Asigna el ID seleccionado
-                >
-                  {starship.name}
-                </li>
+                />
+                  
               ))
             ) : (
               <li className="list-group-item">Cargando starships...</li>
@@ -169,13 +176,15 @@ export const Home = () => {
           <ul className="list-group">
             {store.vehicles.length > 0 ? (
               store.vehicles.map((vehicle, index) => (
-                <li
+                <Card
                   key={index}
+                  name={vehicle.name}
+                  type={"vehicles"}
+                  id={vehicle.uid}
                   className="list-group-item"
                   onClick={() => setSelectedVehicleId(vehicle.uid)} // Asigna el ID seleccionado
-                >
-                  {vehicle.name}
-                </li>
+                />
+                  
               ))
             ) : (
               <li className="list-group-item">Cargando vehículos...</li>
@@ -199,13 +208,15 @@ export const Home = () => {
           <ul className="list-group">
             {store.species.length > 0 ? (
               store.species.map((specie, index) => (
-                <li
+                <Card
                   key={index}
+                  name={specie.name}
+                  type={"species"}
+                  id={specie.uid}
                   className="list-group-item"
                   onClick={() => setSelectedSpeciesId(specie.uid)} // Asigna el ID seleccionado
-                >
-                  {specie.name}
-                </li>
+                />
+                  
               ))
             ) : (
               <li className="list-group-item">Cargando especies...</li>
