@@ -19,7 +19,7 @@ const Card = ({ name, type, id }) => {
         />
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
-          <Link to={`/${type}/${id}`} className="btn btn-primary">
+          <Link to={`/single/${type}/${id}`} className="btn btn-primary">
             Learn more
           </Link>
           <button onClick={handleFavorite} className="btn btn-outline-warning">
