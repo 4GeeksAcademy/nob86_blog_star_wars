@@ -12,8 +12,8 @@ export const Home = () => {
   const [selectedPeopleId, setSelectedPeopleId] = useState(null);
   const [selectedStarshipId, setSelectedStarshipId] = useState(null);
   const [selectedFilmId, setSelectedFilmId] = useState(null);
-  const [selectedVehicleId, setSelectedVehicleId] = useState(null); // Para vehículos
-  const [selectedSpeciesId, setSelectedSpeciesId] = useState(null); // Para especies
+  const [selectedVehicleId, setSelectedVehicleId] = useState(null); 
+  const [selectedSpeciesId, setSelectedSpeciesId] = useState(null); 
 
   // Llamar a la función que obtiene los datos cuando el componente se monta
   useEffect(() => {
@@ -38,7 +38,7 @@ export const Home = () => {
   return (
     <div className="container text-center mt-5">
       <div className="row">
-        {/* Lista de Films */}
+        
         <div className="col-md-3">
           <h2>Lista de Films</h2>
           <ul className="list-group">
@@ -60,7 +60,7 @@ export const Home = () => {
             )}
           </ul>
 
-          {/* Detalles del Film seleccionado */}
+          
           {store.singleFilm && (
             <div>
               <h4>Detalles del Film</h4>
@@ -71,7 +71,7 @@ export const Home = () => {
           )}
         </div>
 
-        {/* Lista de Planetas */}
+        
         <div className="col-md-3">
           <h2>Lista de Planetas</h2>
           <ul className="list-group">
@@ -92,7 +92,7 @@ export const Home = () => {
             )}
           </ul>
 
-          {/* Detalles del Planeta seleccionado */}
+          
           {store.singlePlanet && (
             <div>
               <h4>Detalles del Planeta</h4>
@@ -103,7 +103,7 @@ export const Home = () => {
           )}
         </div>
 
-        {/* Lista de People */}
+       
         <div className="col-md-3">
           <h2>Lista de People</h2>
           <ul className="list-group">

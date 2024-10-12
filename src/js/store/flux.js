@@ -14,8 +14,8 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
       ],
       favoritos: [],
-      planets: [], // Aquí se almacenarán los planetas
-      singlePlanet: null, // Para almacenar un solo planeta si es necesario
+      planets: [],
+      singlePlanet: null,
       people: [],
       singlePeople: null,
       starships: [],
@@ -25,10 +25,9 @@ const getState = ({ getStore, getActions, setStore }) => {
       vehicles: [],
       singleVehicle: null,
       species: [],
-      singleSpecies: null
+      singleSpecies: null,
     },
     actions: {
-      // Función para hacer fetch de los planetas
       fetchPlanetsData: () => {
         fetch("https://www.swapi.tech/api/planets")
           .then((response) => {
@@ -36,7 +35,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             return response.json();
           })
           .then((data) => {
-            // Aquí almacenamos la lista de planetas en el store
             setStore({ planets: data.results });
           })
           .catch((error) => {
@@ -44,7 +42,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
       },
 
-      // Función para obtener un solo planeta por ID
       fetchSinglePlanet: (id) => {
         fetch(`https://www.swapi.tech/api/planets/${id}`)
           .then((response) => {
@@ -52,7 +49,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             return response.json();
           })
           .then((data) => {
-            // Aquí almacenamos el planeta individual en el store
             setStore({ singlePlanet: data.result });
           })
           .catch((error) => {
@@ -67,15 +63,13 @@ const getState = ({ getStore, getActions, setStore }) => {
             return response.json();
           })
           .then((data) => {
-            // Aquí almacenamos la lista de planetas en el store
             setStore({ people: data.results });
           })
           .catch((error) => {
-            console.error("Error fetching planets: ", error);
+            console.error("Error fetching people: ", error);
           });
       },
 
-      // Función para obtener un solo planeta por ID
       fetchSinglePeople: (id) => {
         fetch(`https://www.swapi.tech/api/people/${id}`)
           .then((response) => {
@@ -83,7 +77,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             return response.json();
           })
           .then((data) => {
-            // Aquí almacenamos el planeta individual en el store
             setStore({ singlePeople: data.result });
           })
           .catch((error) => {
@@ -98,7 +91,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             return response.json();
           })
           .then((data) => {
-            // Aquí almacenamos la lista de planetas en el store
             setStore({ starships: data.results });
           })
           .catch((error) => {
@@ -106,7 +98,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
       },
 
-      // Función para obtener un solo planeta por ID
       fetchSingleStarship: (id) => {
         fetch(`https://www.swapi.tech/api/starships/${id}`)
           .then((response) => {
@@ -114,7 +105,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             return response.json();
           })
           .then((data) => {
-            // Aquí almacenamos el planeta individual en el store
             setStore({ singleStarship: data.result });
           })
           .catch((error) => {
@@ -129,7 +119,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             return response.json();
           })
           .then((data) => {
-            // Aquí almacenamos la lista de planetas en el store
             const films = data.result.map((film) => film.properties);
             setStore({ films: films });
           })
@@ -138,7 +127,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
       },
 
-      // Función para obtener un solo planeta por ID
       fetchSingleFilm: (id) => {
         fetch(`https://www.swapi.tech/api/films/${id}`)
           .then((response) => {
@@ -146,7 +134,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             return response.json();
           })
           .then((data) => {
-            // Aquí almacenamos el planeta individual en el store
             setStore({ singleFilm: data.result });
           })
           .catch((error) => {
@@ -161,7 +148,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             return response.json();
           })
           .then((data) => {
-            // Aquí almacenamos la lista de planetas en el store
             setStore({ vehicles: data.results });
           })
           .catch((error) => {
@@ -169,7 +155,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
       },
 
-      // Función para obtener un solo planeta por ID
       fetchSingleVehicle: (id) => {
         fetch(`https://www.swapi.tech/api/vehicles/${id}`)
           .then((response) => {
@@ -177,7 +162,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             return response.json();
           })
           .then((data) => {
-            // Aquí almacenamos el planeta individual en el store
             setStore({ singleVehicle: data.result });
           })
           .catch((error) => {
@@ -192,7 +176,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             return response.json();
           })
           .then((data) => {
-            // Aquí almacenamos la lista de planetas en el store
             setStore({ species: data.results });
           })
           .catch((error) => {
@@ -200,7 +183,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
       },
 
-      // Función para obtener un solo planeta por ID
       fetchSingleSpecie: (id) => {
         fetch(`https://www.swapi.tech/api/species/${id}`)
           .then((response) => {
@@ -208,7 +190,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             return response.json();
           })
           .then((data) => {
-            // Aquí almacenamos el planeta individual en el store
             setStore({ singleSpecie: data.result });
           })
           .catch((error) => {
@@ -216,14 +197,26 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
       },
 
+      addFavorite: (item) => {
+        const store = getStore();
+        const exists = store.favoritos.some((fav) => fav.name === item.name);
+        if (!exists) {
+          const newFavorites = [...store.favoritos, item];
+          setStore({ favoritos: newFavorites });
+        }
+      },
+
+      removeFavorite: (name) => {
+        const store = getStore();
+        const newFavorites = store.favoritos.filter((fav) => fav.name !== name);
+        setStore({ favoritos: newFavorites });
+      },
 
       exampleFunction: () => {
         getActions().changeColor(0, "green");
       },
 
-      loadSomeData: () => {
-        // Puedes hacer otros fetch aquí si es necesario
-      },
+      loadSomeData: () => {},
 
       changeColor: (index, color) => {
         const store = getStore();

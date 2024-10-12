@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
 
 const Card = ({ name, type, id }) => {
+  const { store, actions } = useContext(Context);
+
+  const handleFavorite = () => {
+    const item = { name, type, id };
+    actions.addFavorite(item);
+  };
+
   return (
     <div>
-      <div className="card" style={{ width: "18rem;" }}>
+      <div className="card" style={{ width: "18rem" }}>
         <img
           src={`https://starwars-visualguide.com/assets/img/${type}/${id}.jpg`}
           className="card-img-top"
@@ -12,8 +20,11 @@ const Card = ({ name, type, id }) => {
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
           <a href="#" className="btn btn-primary">
-            Go somewhere
+            Learn more
           </a>
+          <button onClick={handleFavorite} className="btn btn-outline-warning">
+            <i className="fa fa-heart"></i>
+          </button>
         </div>
       </div>
     </div>
