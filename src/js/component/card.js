@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-
+import { Link } from "react-router-dom";
 const Card = ({ name, type, id }) => {
   const { store, actions } = useContext(Context);
 
@@ -19,9 +19,9 @@ const Card = ({ name, type, id }) => {
         />
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
-          <a href="#" className="btn btn-primary">
+          <Link to={`/${type}/${id}`} className="btn btn-primary">
             Learn more
-          </a>
+          </Link>
           <button onClick={handleFavorite} className="btn btn-outline-warning">
             <i className="fa fa-heart"></i>
           </button>
