@@ -88,6 +88,21 @@ export const Single = props => {
                             <p><strong>Passengers:</strong>{itemDetails.properties.passengers}</p>
                         </>
                     )}
+                    {params.type === "vehicles" && (
+                        <>
+                            <p><strong>Cargo capacity:</strong> {itemDetails.properties.cargo_capacity}</p>
+                            <p><strong>Consumables:</strong> {itemDetails.properties.consumables}</p>
+                            <p><strong>Cost in credits:</strong> {itemDetails.properties.cost_in_credits}</p>
+                            <p><strong>Created:</strong> {itemDetails.properties.created}</p>
+                            <p><strong>Crew:</strong> {itemDetails.properties.crew}</p>
+                            <p><strong>Edited:</strong> {itemDetails.properties.edited}</p>
+                            <p><strong>Length:</strong> {itemDetails.properties.length}</p>
+                            <p><strong>Max atmosphering speed:</strong> {itemDetails.properties.max_atmosphering_speed}</p>
+                            <p><strong>Model:</strong> {itemDetails.properties.model}</p>
+                            <p><strong>Passengers:</strong> {itemDetails.properties.passengers}</p>
+                            <p><strong>Vehicle class:</strong> {itemDetails.properties.vehicle_class}</p>
+                        </>
+                    )}
                     <hr className="my-4" />
                     <Link to="/">
                         <span className="btn btn-primary btn-lg" role="button">
