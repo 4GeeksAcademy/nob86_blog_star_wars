@@ -103,6 +103,20 @@ export const Single = props => {
                             <p><strong>Vehicle class:</strong> {itemDetails.properties.vehicle_class}</p>
                         </>
                     )}
+                    {params.type === "species" && (
+                        <>
+                            <p><strong>Average height:</strong> {itemDetails.properties.average_height}</p>
+                            <p><strong>Average lifespan:</strong> {itemDetails.properties.average_lifespan}</p>
+                            <p><strong>Classification:</strong> {itemDetails.properties.classification}</p>
+                            <p><strong>Created:</strong> {itemDetails.properties.created}</p>
+                            <p><strong>Designation:</strong> {itemDetails.properties.designation}</p>
+                            <p><strong>Edited:</strong> {itemDetails.properties.edited}</p>
+                            <p><strong>Eye colors:</strong> {itemDetails.properties.eye_colors}</p>
+                            <p><strong>Hair colors:</strong> {itemDetails.properties.hair_colors}</p>
+                            <p><strong>language:</strong> {itemDetails.properties.language}</p>
+                            <p><strong>skin_colors:</strong> {itemDetails.properties.passengers}</p>
+                        </>
+                    )}
                     <hr className="my-4" />
                     <Link to="/">
                         <span className="btn btn-primary btn-lg" role="button">
