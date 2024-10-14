@@ -61,6 +61,14 @@ export const Single = props => {
                         <>
                             <p><strong>Climate:</strong> {itemDetails.properties.climate}</p>
                             <p><strong>Population:</strong> {itemDetails.properties.population}</p>
+                            <p><strong>Created:</strong> {itemDetails.properties.created}</p>
+                            <p><strong>Diameter:</strong> {itemDetails.properties.diameter}</p>
+                            <p><strong>Edited:</strong> {itemDetails.properties.edited}</p>
+                            <p><strong>Gravity:</strong> {itemDetails.properties.gravity}</p>
+                            <p><strong>Orbital period:</strong> {itemDetails.properties.orbital_period}</p>
+                            <p><strong>Rotation period:</strong> {itemDetails.properties.rotation_period}</p>
+                            <p><strong>Surface water:</strong> {itemDetails.properties.surface_water}</p>
+                            <p><strong>Terrain:</strong> {itemDetails.properties.terrain}</p>
                         </>
                     )}
                     {params.type === "starships" && (
