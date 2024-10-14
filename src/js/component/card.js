@@ -8,14 +8,18 @@ const Card = ({ name, type, id }) => {
     const item = { name, type, id };
     actions.addFavorite(item);
   };
-
+const defaultImage = "https://starwars-visualguide.com/assets/img/placeholder.jpg"
   return (
     <div>
       <div className="card" style={{ width: "18rem" }}>
-        <img
+      <img
           src={`https://starwars-visualguide.com/assets/img/${type}/${id}.jpg`}
           className="card-img-top"
           alt={name}
+          onError={(e) => {
+            e.target.onerror = null; 
+            e.target.src = defaultImage; 
+          }}
         />
         <div className="card-body">
           <h5 className="card-title">{name}</h5>

@@ -41,7 +41,7 @@ export const Single = props => {
     }
 
     return (
-        <div className="jumbotron">
+        <div className="jumbotron d-flex justify-content-center align-items-center flex-column text-center vh-100">
             {itemDetails ? (
                 <>
                     <h1 className="display-4">{itemDetails.properties.name}</h1>
@@ -61,10 +61,22 @@ export const Single = props => {
                         <>
                             <p><strong>Climate:</strong> {itemDetails.properties.climate}</p>
                             <p><strong>Population:</strong> {itemDetails.properties.population}</p>
-                            {/* Agrega más detalles según sea necesario */}
                         </>
                     )}
-                    {/* Agrega más condiciones para starships, films, vehicles, species */}
+                    {params.type === "starships" && (
+                        <>
+                            <p><strong>Model:</strong>{itemDetails.properties.model}</p>
+                            <p><strong>Manufacturer:</strong>{itemDetails.properties.manufacturer}</p>
+                            <p><strong>Cargo capacity:</strong>{itemDetails.properties.cargo_capacity}</p>
+                            <p><strong>Cost:</strong>{itemDetails.properties.cost_in_credits}</p>
+                            <p><strong>MGLT:</strong>{itemDetails.properties.MGLT}</p>
+                            <p><strong>Consumables:</strong>{itemDetails.properties.consumables}</p>
+                            <p><strong>Created:</strong>{itemDetails.properties.created}</p>
+                            <p><strong>Crew:</strong>{itemDetails.properties.crew}</p>
+                            <p><strong>Edited:</strong>{itemDetails.properties.edited}</p>
+                            <p><strong>:</strong>{itemDetails.properties.model}</p>
+                        </>
+                    )}
                     <hr className="my-4" />
                     <Link to="/">
                         <span className="btn btn-primary btn-lg" role="button">
@@ -73,7 +85,7 @@ export const Single = props => {
                     </Link>
                 </>
             ) : (
-                <p>Loading...</p> // Mensaje mientras se cargan los detalles
+                <p>Loading...</p> 
             )}
         </div>
     );
