@@ -74,7 +74,10 @@ export const Single = props => {
                             <p><strong>Created:</strong>{itemDetails.properties.created}</p>
                             <p><strong>Crew:</strong>{itemDetails.properties.crew}</p>
                             <p><strong>Edited:</strong>{itemDetails.properties.edited}</p>
-                            <p><strong>:</strong>{itemDetails.properties.model}</p>
+                            <p><strong>Hyperdrive rating:</strong>{itemDetails.properties.hyperdrive_rating}</p>
+                            <p><strong>Length:</strong>{itemDetails.properties.length}</p>
+                            <p><strong>Max atmosphering speed:</strong>{itemDetails.properties.max_atmosphering_speed}</p>
+                            <p><strong>Passengers:</strong>{itemDetails.properties.passengers}</p>
                         </>
                     )}
                     <hr className="my-4" />
