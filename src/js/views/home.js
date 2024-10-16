@@ -41,7 +41,7 @@ export const Home = () => {
         
         <div className="col-md-3">
           <h2>Lista de Films</h2>
-          <ul className="list-group">
+          <ul className="list-group text-white">
             {store.films?.length > 0 ? (
               store.films.map((film, index) => (
                 <Card
@@ -73,7 +73,7 @@ export const Home = () => {
 
         
         <div className="col-md-3">
-          <h2>Lista de Planetas</h2>
+          <h2 className="text-light">Lista de Planetas</h2>
           <ul className="list-group">
             {store.planets.length > 0 ? (
               store.planets.map((planet, index) => (
@@ -105,7 +105,7 @@ export const Home = () => {
 
        
         <div className="col-md-3">
-          <h2>Lista de People</h2>
+          <h2 className="text-light">Lista de People</h2>
           <ul className="list-group">
             {store.people.length > 0 ? (
               store.people.map((people, index) => (
@@ -137,7 +137,7 @@ export const Home = () => {
 
         {/* Lista de Starships */}
         <div className="col-md-3">
-          <h2>Lista de Starships</h2>
+          <h2 className="text-light">Lista de Starships</h2>
           <ul className="list-group">
             {store.starships.length > 0 ? (
               store.starships.map((starship, index) => (
@@ -172,7 +172,7 @@ export const Home = () => {
       <div className="row mt-4">
         {/* Lista de Vehicles */}
         <div className="col-md-3">
-          <h2>Lista de Vehicles</h2>
+          <h2 className="text-light">Lista de Vehicles</h2>
           <ul className="list-group">
             {store.vehicles.length > 0 ? (
               store.vehicles.map((vehicle, index) => (
@@ -204,7 +204,7 @@ export const Home = () => {
 
         {/* Lista de Species */}
         <div className="col-md-3">
-          <h2>Lista de Species</h2>
+          <h2 className="text-light">Lista de Species</h2>
           <ul className="list-group">
             {store.species.length > 0 ? (
               store.species.map((specie, index) => (

@@ -14,7 +14,7 @@ export const Navbar = () => {
       <div className="ml-auto d-flex align-items-center">
         <div className="dropdown">
           <button
-            className="btn btn-secondary dropdown-toggle me-3"
+            className="btn btn-warning dropdown-toggle me-3"
             type="button"
             id="dropdownMenuButton"
             data-bs-toggle="dropdown"

@@ -23,7 +23,7 @@ const defaultImage = "https://starwars-visualguide.com/assets/img/placeholder.jp
         />
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
-          <Link to={`/single/${type}/${id}`} className="btn btn-primary">
+          <Link to={`/single/${type}/${id}`} className="btn btn-primary me-5">
             Learn more
           </Link>
           <button onClick={handleFavorite} className="btn btn-outline-warning">
