@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import logo from "/workspaces/nob86_blog_star_wars/src/img/Captura de pantalla 2024-10-17 a las 1.13.07.png"
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
@@ -8,12 +9,12 @@ export const Navbar = () => {
   return (
     <nav className="navbar navbar-light bg-light mb-5">
       <Link to="/">
-        <span className="navbar-brand mb-0 h1">START WARS</span>
+        <span className="navbar-brand mb-0 h1"><img src={logo} alt="logo" style={{ width: "100px", height: "auto" }} className="mx-3"/></span>
       </Link>
       <div className="ml-auto d-flex align-items-center">
         <div className="dropdown">
           <button
-            className="btn btn-secondary dropdown-toggle"
+            className="btn btn-secondary dropdown-toggle me-3"
             type="button"
             id="dropdownMenuButton"
             data-bs-toggle="dropdown"
@@ -35,7 +36,7 @@ export const Navbar = () => {
                 </li>
               ))
             ) : (
-              <li className="dropdown-item">No favorites added</li>
+              <li className="dropdown-item ">No favorites added</li>
             )}
           </ul>
         </div>
