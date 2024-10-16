@@ -6,9 +6,10 @@ import { Context } from "../store/appContext";
 export const Single = props => {
     const { store, actions } = useContext(Context);
     const params = useParams(); // Captura el parámetro de la URL (theid)
+    const { type, id } = params; // Captura el tipo y el id
 
     useEffect(() => {
-        const { type, id } = params; // Captura el tipo y el id
+        
         if (type === "characters") {
             actions.fetchSinglePeople(id); // Llama a la acción para obtener los detalles de la persona
         } else if (type === "planets") {
@@ -39,12 +40,14 @@ export const Single = props => {
     } else if (params.type === "species") {
         itemDetails = store.singleSpecies;
     }
-
+   
     return (
         <div className="jumbotron d-flex justify-content-center align-items-center flex-column text-center vh-100">
             {itemDetails ? (
                 <>
+                <img src={`https://starwars-visualguide.com/assets/img/${type}/${id}.jpg`} alt={itemDetails.properties.name} className="py 5" />
                     <h1 className="display-4">{itemDetails.properties.name}</h1>
+                    
                     {/* Muestra las propiedades específicas según el tipo */}
                     {params.type === "characters" && (
                         <>
