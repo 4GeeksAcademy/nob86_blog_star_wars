@@ -16,10 +16,10 @@ const defaultImage = "https://www.monodejuegos.shop/wp-content/uploads/2023/09/r
           src={`https://starwars-visualguide.com/assets/img/${type}/${id}.jpg`}
           className="card-img-top"
           alt={name}
+          style={{ height: "247px", objectFit: "cover" }}
           onError={(e) => {
             e.target.onerror = null; 
             e.target.src = defaultImage;
-            e.target.style.height = "247px"; 
           }}
         />
         <div className="card-body">
