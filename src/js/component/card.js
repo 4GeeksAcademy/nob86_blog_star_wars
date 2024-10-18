@@ -8,17 +8,21 @@ const Card = ({ name, type, id }) => {
     const item = { name, type, id };
     actions.addFavorite(item);
   };
-const defaultImage = "https://www.monodejuegos.shop/wp-content/uploads/2023/09/regalos-star-wars-1024x640.webp" 
+  const defaultImage =
+    "https://www.monodejuegos.shop/wp-content/uploads/2023/09/regalos-star-wars-1024x640.webp";
   return (
     <div>
-      <div className="card" style={{ width: "18rem",  margin: "0.5rem", display: "flex" }}>
-      <img
+      <div
+        className="card"
+        style={{ width: "18rem", margin: "0.5rem", display: "flex" }}
+      >
+        <img
           src={`https://starwars-visualguide.com/assets/img/${type}/${id}.jpg`}
           className="card-img-top"
           alt={name}
           style={{ height: "247px", objectFit: "cover" }}
           onError={(e) => {
-            e.target.onerror = null; 
+            e.target.onerror = null;
             e.target.src = defaultImage;
           }}
         />
