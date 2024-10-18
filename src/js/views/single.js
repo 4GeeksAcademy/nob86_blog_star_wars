@@ -42,7 +42,7 @@ export const Single = props => {
     }
    
     return (
-        <div className="jumbotron d-flex justify-content-center align-items-center flex-column text-center vh-100">
+        <div className="jumbotron d-flex justify-content-center align-items-center flex-column text-center vh-100 text-light">
             {itemDetails ? (
                 <>
                 <img src={`https://starwars-visualguide.com/assets/img/${type}/${id}.jpg`} alt={itemDetails.properties.name} className="pt-5 mt-5" />
