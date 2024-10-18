@@ -1,3 +1,23 @@
 body {
     background-color: black;
 }
+
+.starwars {
+    display: flex;
+    flex-wrap: wrap; /* Para que las tarjetas se ajusten en varias líneas si es necesario */
+    justify-content: space-around; /* Ajusta el espacio entre tarjetas, puedes usar space-between o space-evenly */
+    gap: 1rem; /* Espacio entre tarjetas */
+  }
+  
+  
+  
+  .card {
+    flex: 1 1 calc(25% - 1rem); /* Hace que cada tarjeta ocupe un 25% del ancho de su contenedor */
+    min-width: 250px; /* Asegura que las tarjetas no se reduzcan demasiado en pantallas pequeñas */
+    background-color: #333; /* Ejemplo de estilo de fondo */
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  

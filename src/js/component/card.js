@@ -11,7 +11,7 @@ const Card = ({ name, type, id }) => {
 const defaultImage = "https://starwars-visualguide.com/assets/img/placeholder.jpg"
   return (
     <div>
-      <div className="card" style={{ width: "18rem" }}>
+      <div className="card" style={{ width: "18rem",  margin: "0.5rem", display: "flex" }}>
       <img
           src={`https://starwars-visualguide.com/assets/img/${type}/${id}.jpg`}
           className="card-img-top"

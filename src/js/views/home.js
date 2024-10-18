@@ -37,11 +37,11 @@ export const Home = () => {
 
   return (
     <div className="container text-center mt-5">
+      {/* Row para la lista de Films */}
       <div className="row">
-        
-        <div className="col-md-3">
-          <h2>Lista de Films</h2>
-          <ul className="list-group text-white">
+        <div className="col-12">
+          <h2 className="text-light">Lista de Films</h2>
+          <div className="d-flex flex-wrap justify-content-center">
             {store.films?.length > 0 ? (
               store.films.map((film, index) => (
                 <Card
@@ -49,18 +49,14 @@ export const Home = () => {
                   name={film.name}
                   type={"films"}
                   id={film.uid}
-                  className="list-group-item"
+                  className="card"
                   onClick={() => setSelectedFilmId(film.uid)} // Asigna el ID seleccionado
                 />
-                  
-               
               ))
             ) : (
-              <li className="list-group-item">Cargando films...</li>
+              <p className="text-white">Cargando films...</p>
             )}
-          </ul>
-
-          
+          </div>
           {store.singleFilm && (
             <div>
               <h4>Detalles del Film</h4>
@@ -70,11 +66,13 @@ export const Home = () => {
             </div>
           )}
         </div>
+      </div>
 
-        
-        <div className="col-md-3">
+      {/* Row para la lista de Planetas */}
+      <div className="row">
+        <div className="col-12">
           <h2 className="text-light">Lista de Planetas</h2>
-          <ul className="list-group">
+          <div className="d-flex flex-wrap justify-content-center">
             {store.planets.length > 0 ? (
               store.planets.map((planet, index) => (
                 <Card
@@ -82,17 +80,14 @@ export const Home = () => {
                   name={planet.name}
                   type={"planets"}
                   id={planet.uid}
-                  className="list-group-item"
+                  className="card"
                   onClick={() => setSelectedPlanetId(planet.uid)} // Asigna el ID seleccionado
                 />
-                  
               ))
             ) : (
-              <li className="list-group-item">Cargando planetas...</li>
+              <p className="text-white">Cargando planetas...</p>
             )}
-          </ul>
-
-          
+          </div>
           {store.singlePlanet && (
             <div>
               <h4>Detalles del Planeta</h4>
@@ -102,11 +97,13 @@ export const Home = () => {
             </div>
           )}
         </div>
+      </div>
 
-       
-        <div className="col-md-3">
+      {/* Row para la lista de People */}
+      <div className="row">
+        <div className="col-12">
           <h2 className="text-light">Lista de People</h2>
-          <ul className="list-group">
+          <div className="d-flex flex-wrap justify-content-center">
             {store.people.length > 0 ? (
               store.people.map((people, index) => (
                 <Card
@@ -114,17 +111,14 @@ export const Home = () => {
                   name={people.name}
                   type={"characters"}
                   id={people.uid}
-                  className="list-group-item"
+                  className="card"
                   onClick={() => setSelectedPeopleId(people.uid)} // Asigna el ID seleccionado
                 />
-                
               ))
             ) : (
-              <li className="list-group-item">Cargando people...</li>
+              <p className="text-white">Cargando people...</p>
             )}
-          </ul>
-
-          {/* Detalles de la Persona seleccionada */}
+          </div>
           {store.singlePeople && (
             <div>
               <h4>Detalles de la Persona</h4>
@@ -134,11 +128,13 @@ export const Home = () => {
             </div>
           )}
         </div>
+      </div>
 
-        {/* Lista de Starships */}
-        <div className="col-md-3">
+      {/* Row para la lista de Starships */}
+      <div className="row">
+        <div className="col-12">
           <h2 className="text-light">Lista de Starships</h2>
-          <ul className="list-group">
+          <div className="d-flex flex-wrap justify-content-center">
             {store.starships.length > 0 ? (
               store.starships.map((starship, index) => (
                 <Card
@@ -146,17 +142,14 @@ export const Home = () => {
                   name={starship.name}
                   type={"starships"}
                   id={starship.uid}
-                  className="list-group-item"
+                  className="card"
                   onClick={() => setSelectedStarshipId(starship.uid)} // Asigna el ID seleccionado
                 />
-                  
               ))
             ) : (
-              <li className="list-group-item">Cargando starships...</li>
+              <p className="text-white">Cargando starships...</p>
             )}
-          </ul>
-
-          {/* Detalles de la Nave seleccionada */}
+          </div>
           {store.singleStarship && (
             <div>
               <h4>Detalles de la Nave</h4>
@@ -168,12 +161,11 @@ export const Home = () => {
         </div>
       </div>
 
-      {/* Nueva fila para Vehículos y Especies */}
-      <div className="row mt-4">
-        {/* Lista de Vehicles */}
-        <div className="col-md-3">
+      {/* Row para la lista de Vehicles */}
+      <div className="row">
+        <div className="col-12">
           <h2 className="text-light">Lista de Vehicles</h2>
-          <ul className="list-group">
+          <div className="d-flex flex-wrap justify-content-center">
             {store.vehicles.length > 0 ? (
               store.vehicles.map((vehicle, index) => (
                 <Card
@@ -181,17 +173,14 @@ export const Home = () => {
                   name={vehicle.name}
                   type={"vehicles"}
                   id={vehicle.uid}
-                  className="list-group-item"
+                  className="card"
                   onClick={() => setSelectedVehicleId(vehicle.uid)} // Asigna el ID seleccionado
                 />
-                  
               ))
             ) : (
-              <li className="list-group-item">Cargando vehículos...</li>
+              <p className="text-white">Cargando vehículos...</p>
             )}
-          </ul>
-
-          {/* Detalles del Vehículo seleccionado */}
+          </div>
           {store.singleVehicle && (
             <div>
               <h4>Detalles del Vehículo</h4>
@@ -201,11 +190,13 @@ export const Home = () => {
             </div>
           )}
         </div>
+      </div>
 
-        {/* Lista de Species */}
-        <div className="col-md-3">
+      {/* Row para la lista de Species */}
+      <div className="row">
+        <div className="col-12">
           <h2 className="text-light">Lista de Species</h2>
-          <ul className="list-group">
+          <div className="d-flex flex-wrap justify-content-center">
             {store.species.length > 0 ? (
               store.species.map((specie, index) => (
                 <Card
@@ -213,17 +204,14 @@ export const Home = () => {
                   name={specie.name}
                   type={"species"}
                   id={specie.uid}
-                  className="list-group-item"
+                  className="card"
                   onClick={() => setSelectedSpeciesId(specie.uid)} // Asigna el ID seleccionado
                 />
-                  
               ))
             ) : (
-              <li className="list-group-item">Cargando especies...</li>
+              <p className="text-white">Cargando especies...</p>
             )}
-          </ul>
-
-          {/* Detalles de la Especie seleccionada */}
+          </div>
           {store.singleSpecies && (
             <div>
               <h4>Detalles de la Especie</h4>
