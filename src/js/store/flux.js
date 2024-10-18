@@ -20,8 +20,6 @@ const getState = ({ getStore, getActions, setStore }) => {
       singlePeople: null,
       starships: [],
       singleStarship: null,
-      films: [],
-      singleFilm: null,
       vehicles: [],
       singleVehicle: null,
       species: [],
@@ -112,34 +110,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
       },
 
-      fetchFilmsData: () => {
-        fetch("https://www.swapi.tech/api/films")
-          .then((response) => {
-            if (!response.ok) throw new Error("Error al obtener los films");
-            return response.json();
-          })
-          .then((data) => {
-            const films = data.result.map((film) => film.properties);
-            setStore({ films: films });
-          })
-          .catch((error) => {
-            console.error("Error fetching films: ", error);
-          });
-      },
-
-      fetchSingleFilm: (id) => {
-        fetch(`https://www.swapi.tech/api/films/${id}`)
-          .then((response) => {
-            if (!response.ok) throw new Error("Error al obtener el film");
-            return response.json();
-          })
-          .then((data) => {
-            setStore({ singleFilm: data.result });
-          })
-          .catch((error) => {
-            console.error("Error fetching single film: ", error);
-          });
-      },
+      
 
       fetchVehiclesData: () => {
         fetch("https://www.swapi.tech/api/vehicles")

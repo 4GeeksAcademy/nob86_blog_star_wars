@@ -11,7 +11,7 @@ export const Home = () => {
   const [selectedPlanetId, setSelectedPlanetId] = useState(null);
   const [selectedPeopleId, setSelectedPeopleId] = useState(null);
   const [selectedStarshipId, setSelectedStarshipId] = useState(null);
-  const [selectedFilmId, setSelectedFilmId] = useState(null);
+  
   const [selectedVehicleId, setSelectedVehicleId] = useState(null); 
   const [selectedSpeciesId, setSelectedSpeciesId] = useState(null); 
 
@@ -20,7 +20,7 @@ export const Home = () => {
     actions.fetchPlanetsData();
     actions.fetchPeopleData();
     actions.fetchStarshipsData();
-    actions.fetchFilmsData();
+    
     actions.fetchVehiclesData(); // Llama a la función de vehículos
     actions.fetchspeciesData(); // Llama a la función de especies
   }, []);
@@ -30,44 +30,13 @@ export const Home = () => {
     if (selectedPlanetId) actions.fetchSinglePlanet(selectedPlanetId);
     if (selectedPeopleId) actions.fetchSinglePeople(selectedPeopleId);
     if (selectedStarshipId) actions.fetchSingleStarship(selectedStarshipId);
-    if (selectedFilmId) actions.fetchSingleFilm(selectedFilmId);
+    
     if (selectedVehicleId) actions.fetchSingleVehicle(selectedVehicleId); // Agrega esta línea
     if (selectedSpeciesId) actions.fetchSingleSpecie(selectedSpeciesId); // Agrega esta línea
-  }, [selectedPlanetId, selectedPeopleId, selectedStarshipId, selectedFilmId, selectedVehicleId, selectedSpeciesId]);
+  }, [selectedPlanetId, selectedPeopleId, selectedStarshipId, selectedVehicleId, selectedSpeciesId]);
 
   return (
     <div className="container text-center mt-5">
-      {/* Row para la lista de Films */}
-      <div className="row">
-        <div className="col-12">
-          <h2 className="text-light">Lista de Films</h2>
-          <div className="d-flex flex-wrap justify-content-center">
-            {store.films?.length > 0 ? (
-              store.films.map((film, index) => (
-                <Card
-                  key={index}
-                  name={film.name}
-                  type={"films"}
-                  id={film.uid}
-                  className="card"
-                  onClick={() => setSelectedFilmId(film.uid)} // Asigna el ID seleccionado
-                />
-              ))
-            ) : (
-              <p className="text-white">Cargando films...</p>
-            )}
-          </div>
-          {store.singleFilm && (
-            <div>
-              <h4>Detalles del Film</h4>
-              <p>Título: {store.singleFilm.properties.title}</p>
-              <p>Director: {store.singleFilm.properties.director}</p>
-              <p>Productor: {store.singleFilm.properties.producer}</p>
-            </div>
-          )}
-        </div>
-      </div>
-
       {/* Row para la lista de Planetas */}
       <div className="row">
         <div className="col-12">

@@ -15,8 +15,7 @@ export const Single = (props) => {
       actions.fetchSinglePlanet(id); // Llama a la acción para obtener los detalles del planeta
     } else if (type === "starships") {
       actions.fetchSingleStarship(id); // Llama a la acción para obtener los detalles de la nave
-    } else if (type === "films") {
-      actions.fetchSingleFilm(id); // Llama a la acción para obtener los detalles del film
+    
     } else if (type === "vehicles") {
       actions.fetchSingleVehicle(id); // Llama a la acción para obtener los detalles del vehículo
     } else if (type === "species") {
@@ -32,8 +31,7 @@ export const Single = (props) => {
     itemDetails = store.singlePlanet;
   } else if (params.type === "starships") {
     itemDetails = store.singleStarship;
-  } else if (params.type === "films") {
-    itemDetails = store.singleFilm;
+  
   } else if (params.type === "vehicles") {
     itemDetails = store.singleVehicle;
   } else if (params.type === "species") {
@@ -41,12 +39,12 @@ export const Single = (props) => {
   }
 
   return (
-    <div className="jumbotron d-flex justify-content-center align-items-center flex-column text-center vh-100 text-light">
+    <div className="jumbotron d-flex justify-content-center align-items-center flex-column text-center vh-100 text-light"style={{ marginTop: "100px" }}>
       {itemDetails ? (
         <>
           <img
             src={`https://starwars-visualguide.com/assets/img/${type}/${id}.jpg`}
-            alt={itemDetails.properties.name}
+            alt={itemDetails.properties.name} 
             className="pt-5 mt-5"
             onError={(e) => {
               e.target.onerror = null;
