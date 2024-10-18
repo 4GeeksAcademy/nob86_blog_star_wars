@@ -49,7 +49,7 @@ export const Single = (props) => {
             onError={(e) => {
               e.target.onerror = null;
               e.target.src =
-                "https://starwars-visualguide.com/assets/img/placeholder.jpg";
+                "https://www.monodejuegos.shop/wp-content/uploads/2023/09/regalos-star-wars-1024x640.webp";
             }}
           />
 
